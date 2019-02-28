@@ -124,10 +124,16 @@ contains(names, 'Colt', function(result){
 */
 
 const uniq = function(arr, cb) {
-  if (boop) {
-    //
+  for (let i = 0; i < arr.length; i++) {
+    for(let j = i; j < arr.length; j++) {
+      if (i !== j && arr[i] === arr[j]){
+        arr.splice(j, 1);
+      }
+    }
   }
+  cb(arr);
 } 
+
 
 // Do not edit the code below.
 uniq(names, function(uniqArr){
@@ -144,7 +150,11 @@ uniq(names, function(uniqArr){
   For each name in the array, invoke the callback and pass in the name and the name's index as arguments.
 */
 
-//Code Here 
+const each = function(arr, cb) {
+  for (i = 0; i < arr.length; i++) {
+    cb(arr[i], i);
+  }
+}  
 
 // Do not edit the code below.
 each(names, function(item, indice){
@@ -157,11 +167,19 @@ each(names, function(item, indice){
 ////////// PROBLEM 7 //////////
 
 /*
-  Write a function called getUserById that takes in three parameters: an array of objects (users), an id and a callback, and searches for the user with a matching id.
+  Write a function called getUserById that takes in three parameters: an array of objects (users), an id and a callback, 
+  and searches for the user with a matching id.
   When the correct user object is found, invoke the callback with the user object as an argument.
 */
 
-// Code here
+function getUserById(arr, ID, cb) {
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i].id === ID) {
+      return arr[i];
+    }
+  }
+}
+
 
 // Do not edit the code below.
 var users = [
