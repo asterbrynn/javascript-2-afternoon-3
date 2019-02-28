@@ -175,7 +175,7 @@ each(names, function(item, indice){
 function getUserById(arr, ID, cb) {
   for (var i = 0; i < arr.length; i++) {
     if (arr[i].id === ID) {
-      return arr[i];
+      cb(arr[i]);
     }
   }
 }
